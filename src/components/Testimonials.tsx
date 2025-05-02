@@ -1,38 +1,94 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+import { Section } from './ui/Section';
+import { SectionTitle } from './ui/SectionTitle';
 import { testimonials } from '../data/testimonials';
+import { Star } from 'lucide-react';
 
-const Testimonials: React.FC = () => {
+export function Testimonials() {
   return (
-    <div id="testimonials" className="py-16 bg-amber-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-serif font-bold text-amber-900 mb-2 text-center">Our Customers' Stories</h2>
-        <p className="text-amber-800 text-center max-w-3xl mx-auto mb-12">
-          Hear from musicians who have found their voice with our instruments.
-        </p>
-        
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map(testimonial => (
-            <div 
-              key={testimonial.id}
-              className="bg-white p-6 rounded-lg shadow-md border border-amber-200"
-            >
-              <div className="flex items-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-amber-700 flex items-center justify-center text-amber-50 font-serif text-xl">
-                  {testimonial.name.charAt(0)}
-                </div>
-                <div className="ml-4">
-                  <h3 className="font-medium text-amber-900">{testimonial.name}</h3>
-                  <p className="text-sm text-amber-700">{testimonial.location}</p>
+    <Section id="testimonials" dark>
+      <SectionTitle 
+        title="Client Testimonials" 
+        subtitle="Hear what our clients have to say about their experience working with Obsidian Woodworking."
+        light
+        centered
+      />
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {testimonials.map((testimonial, index) => (
+          <motion.div
+            key={testimonial.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="bg-charcoal p-8 rounded-sm shadow-custom relative"
+          >
+            {/* Quote mark */}
+            <div className="absolute -top-4 -left-2 text-6xl text-gold opacity-30 font-serif">"</div>
+            
+            {/* Rating */}
+            <div className="flex mb-4">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  size={16}
+                  className={i < testimonial.rating ? "text-gold" : "text-stone-600"}
+                  fill={i < testimonial.rating ? "#D4AF37" : "none"}
+                />
+              ))}
+            </div>
+            
+            {/* Content */}
+            <p className="text-stone-300 mb-6 relative z-10">"{testimonial.content}"</p>
+            
+            {/* Author */}
+            <div className="flex items-center">
+              {testimonial.image && (
+                <img 
+                  src={testimonial.image} 
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full object-cover mr-4"
+                />
+              )}
+              <div>
+                <h4 className="text-white font-medium">{testimonial.name}</h4>
+                <div className="flex flex-col sm:flex-row sm:items-center">
+                  {testimonial.role && (
+                    <span className="text-stone-400 text-sm">{testimonial.role}</span>
+                  )}
+                  {testimonial.project && (
+                    <>
+                      <span className="hidden sm:inline text-stone-400 text-sm mx-2">•</span>
+                      <span className="text-gold text-sm">{testimonial.project}</span>
+                    </>
+                  )}
                 </div>
               </div>
-              <p className="text-amber-800 italic mb-4">"{testimonial.text}"</p>
-              <p className="text-sm text-amber-700 font-medium">{testimonial.instrument}</p>
             </div>
-          ))}
-        </div>
+          </motion.div>
+        ))}
       </div>
-    </div>
+      
+      {/* CTA */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        viewport={{ once: true }}
+        className="mt-16 text-center"
+      >
+        <p className="text-stone-300 text-lg mb-6">
+          Ready to start your custom woodworking project?
+        </p>
+        <a 
+          href="#contact" 
+          className="inline-flex items-center justify-center px-8 py-3 bg-gold text-white font-medium rounded-sm transition-all duration-300 hover:bg-gold/90"
+        >
+          Get in Touch
+        </a>
+      </motion.div>
+    </Section>
   );
-};
-
-export default Testimonials;
+}

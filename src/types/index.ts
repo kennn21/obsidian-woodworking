@@ -1,23 +1,21 @@
-export interface Instrument {
+export interface Project {
   id: string;
-  name: string;
+  title: string;
   category: string;
-  price: number;
+  image: string;
   description: string;
-  imageUrl: string;
-  featured: boolean;
-  soundSample?: string;
-  details?: {
-    material: string;
-    origin: string;
-    craftsmanship: string;
-  };
+  year: number;
+  client?: string;
+  location?: string;
+  featured?: boolean;
 }
 
-export interface TestimonialType {
+export interface Testimonial {
   id: string;
   name: string;
-  location: string;
-  text: string;
-  instrument: string;
+  role?: string;
+  content: string;
+  image?: string;
+  project?: string;
+  rating: number;
 }

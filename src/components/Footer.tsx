@@ -1,78 +1,126 @@
 import React from 'react';
-import { Music, Facebook, Instagram, Youtube } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Youtube, MapPin, Phone, Mail } from 'lucide-react';
 
-const Footer: React.FC = () => {
+export function Footer() {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="bg-amber-950 text-amber-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="md:col-span-1">
-            <div className="flex items-center mb-4">
-              <Music className="h-8 w-8 text-amber-400" />
-              <span className="ml-2 text-xl font-serif tracking-wider text-amber-50">Woodland Instruments</span>
-            </div>
-            <p className="mb-4">
-              Crafting authentic musical instruments with tradition and soul since 1897.
+    <footer className="bg-obsidian text-white">
+      <div className="container-custom py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Column 1 - About */}
+          <div>
+            <h3 className="text-xl font-serif font-medium mb-6">
+              Obsidian <span className="text-gold">Woodworking</span>
+            </h3>
+            <p className="text-stone-300 mb-6">
+              Custom woodworking and cabinetry, crafting heirloom-quality pieces that celebrate the beauty of natural wood and traditional craftsmanship.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-amber-400 hover:text-amber-200 transition-colors">
-                <Facebook className="h-5 w-5" />
+              <a href="#" className="text-stone-400 hover:text-gold transition-colors duration-300">
+                <Facebook size={20} />
               </a>
-              <a href="#" className="text-amber-400 hover:text-amber-200 transition-colors">
-                <Instagram className="h-5 w-5" />
+              <a href="#" className="text-stone-400 hover:text-gold transition-colors duration-300">
+                <Instagram size={20} />
               </a>
-              <a href="#" className="text-amber-400 hover:text-amber-200 transition-colors">
-                <Youtube className="h-5 w-5" />
+              <a href="#" className="text-stone-400 hover:text-gold transition-colors duration-300">
+                <Twitter size={20} />
+              </a>
+              <a href="#" className="text-stone-400 hover:text-gold transition-colors duration-300">
+                <Youtube size={20} />
               </a>
             </div>
           </div>
           
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-medium text-amber-50 mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-amber-50 transition-colors">Home</a></li>
-              <li><a href="#instruments" className="hover:text-amber-50 transition-colors">Instruments</a></li>
-              <li><a href="#craftsmanship" className="hover:text-amber-50 transition-colors">Craftsmanship</a></li>
-              <li><a href="#testimonials" className="hover:text-amber-50 transition-colors">Testimonials</a></li>
-              <li><a href="#contact" className="hover:text-amber-50 transition-colors">Contact</a></li>
+          {/* Column 2 - Quick Links */}
+          <div>
+            <h3 className="text-lg font-medium mb-6">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#home" className="text-stone-300 hover:text-gold transition-colors duration-300">Home</a>
+              </li>
+              <li>
+                <a href="#about" className="text-stone-300 hover:text-gold transition-colors duration-300">About Us</a>
+              </li>
+              <li>
+                <a href="#services" className="text-stone-300 hover:text-gold transition-colors duration-300">Services</a>
+              </li>
+              <li>
+                <a href="#portfolio" className="text-stone-300 hover:text-gold transition-colors duration-300">Portfolio</a>
+              </li>
+              <li>
+                <a href="#testimonials" className="text-stone-300 hover:text-gold transition-colors duration-300">Testimonials</a>
+              </li>
+              <li>
+                <a href="#contact" className="text-stone-300 hover:text-gold transition-colors duration-300">Contact</a>
+              </li>
             </ul>
           </div>
           
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-medium text-amber-50 mb-4">Instrument Categories</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="hover:text-amber-50 transition-colors">String Instruments</a></li>
-              <li><a href="#" className="hover:text-amber-50 transition-colors">Wind Instruments</a></li>
-              <li><a href="#" className="hover:text-amber-50 transition-colors">Percussion</a></li>
-              <li><a href="#" className="hover:text-amber-50 transition-colors">Accessories</a></li>
+          {/* Column 3 - Services */}
+          <div>
+            <h3 className="text-lg font-medium mb-6">Services</h3>
+            <ul className="space-y-3">
+              <li>
+                <a href="#services" className="text-stone-300 hover:text-gold transition-colors duration-300">Custom Cabinetry</a>
+              </li>
+              <li>
+                <a href="#services" className="text-stone-300 hover:text-gold transition-colors duration-300">Custom Furniture</a>
+              </li>
+              <li>
+                <a href="#services" className="text-stone-300 hover:text-gold transition-colors duration-300">Architectural Millwork</a>
+              </li>
+              <li>
+                <a href="#services" className="text-stone-300 hover:text-gold transition-colors duration-300">Commercial Projects</a>
+              </li>
+              <li>
+                <a href="#services" className="text-stone-300 hover:text-gold transition-colors duration-300">Design Consultation</a>
+              </li>
+              <li>
+                <a href="#services" className="text-stone-300 hover:text-gold transition-colors duration-300">Restoration Services</a>
+              </li>
             </ul>
           </div>
           
-          <div className="md:col-span-1">
-            <h3 className="text-lg font-medium text-amber-50 mb-4">Workshop Hours</h3>
-            <ul className="space-y-1">
-              <li className="flex justify-between">
-                <span>Tuesday - Friday</span>
-                <span>10am - 5pm</span>
+          {/* Column 4 - Contact */}
+          <div>
+            <h3 className="text-lg font-medium mb-6">Contact Info</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start">
+                <MapPin size={20} className="text-gold mr-3 mt-1 flex-shrink-0" />
+                <span className="text-stone-300">
+                  123 Craftsman Way<br />
+                  Portland, OR 97205
+                </span>
               </li>
-              <li className="flex justify-between">
-                <span>Saturday</span>
-                <span>9am - 4pm</span>
+              <li className="flex items-center">
+                <Phone size={20} className="text-gold mr-3 flex-shrink-0" />
+                <span className="text-stone-300">(555) 123-4567</span>
               </li>
-              <li className="flex justify-between">
-                <span>Sunday - Monday</span>
-                <span>Closed</span>
+              <li className="flex items-center">
+                <Mail size={20} className="text-gold mr-3 flex-shrink-0" />
+                <span className="text-stone-300">info@obsidianwoodworking.com</span>
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="mt-12 pt-8 border-t border-amber-900 text-center text-sm">
-          <p>© {new Date().getFullYear()} Woodland Instruments. All rights reserved.</p>
+        <hr className="border-stone-700 my-8" />
+        
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="text-stone-400 text-sm mb-4 md:mb-0">
+            &copy; {currentYear} Obsidian Woodworking & Custom Cabinetry. All Rights Reserved.
+          </p>
+          <div className="flex space-x-6">
+            <a href="#" className="text-stone-400 text-sm hover:text-gold transition-colors duration-300">
+              Privacy Policy
+            </a>
+            <a href="#" className="text-stone-400 text-sm hover:text-gold transition-colors duration-300">
+              Terms of Service
+            </a>
+          </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

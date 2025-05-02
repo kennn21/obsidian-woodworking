@@ -4,26 +4,41 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Inter', 'sans-serif'],
-        'serif': ['Lora', 'serif'],
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Cormorant Garamond', 'serif'],
       },
       colors: {
-        amber: {
-          50: '#fff8e6',
-          100: '#ffefc4',
-          200: '#ffe09b',
-          300: '#ffc96b',
-          400: '#ffb347',
-          500: '#ff9d1b',
-          600: '#fe8a0a',
-          700: '#ee7600',
-          800: '#cc5f00',
-          900: '#a94e08',
-          950: '#7a2d00',
-        },
+        obsidian: '#1A1A1A', // Deep black with slight warmth
+        charcoal: '#2C2C2C', // Slightly lighter black
+        walnut: '#513B2F', // Deep, rich brown
+        oak: '#A67C52', // Medium warm brown
+        maple: '#DEB887', // Light, warm brown
+        ivory: '#FFFDF7', // Warm white
+        gold: '#D4AF37', // Accent color
       },
       backgroundImage: {
-        'wood-pattern': "url('https://images.pexels.com/photos/129733/pexels-photo-129733.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')",
+        'hero-pattern': 'linear-gradient(to bottom, rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.8)), url("/src/assets/images/hero-bg.jpg")',
+        'about-pattern': 'linear-gradient(to right, rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.7)), url("/src/assets/images/about-bg.jpg")',
+        'cta-pattern': 'linear-gradient(to bottom, rgba(26, 26, 26, 0.7), rgba(26, 26, 26, 0.8)), url("/src/assets/images/cta-bg.jpg")',
+      },
+      boxShadow: {
+        'custom': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'custom-lg': '0 10px 30px rgba(0, 0, 0, 0.12)',
+      },
+      transitionTimingFunction: {
+        'custom': 'cubic-bezier(0.4, 0, 0.2, 1)',
+      },
+      spacing: {
+        '128': '32rem',
+      },
+      keyframes: {
+        'fade-in-up': {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+      },
+      animation: {
+        'fade-in-up': 'fade-in-up 0.7s ease-out forwards',
       },
     },
   },
